@@ -6,6 +6,7 @@ import CartRemoveIcon from "./CartRemoveIcon";
 const Cart = () => {
   const cartItems = useSelector((store) => store.cartItems);
   const products = useSelector((store) => store.products);
+  const totalPrice = useSelector((store) => store.totalPrice);
 
   let totalItems = 0;
   for (const [key, value] of Object.entries(cartItems)) {
@@ -15,6 +16,7 @@ const Cart = () => {
   return (
     <div>
       <div>Total number of products in cart: {totalItems}</div>
+      <div>Total price: ${totalPrice}</div>
       <ul>
         {Object.keys(cartItems).map((id) => (
           <li>
